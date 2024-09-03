@@ -1,0 +1,22 @@
+databases:
+  - name: cosanostrverify
+    region: ohio
+    databaseName: cosanostrverify_production
+    user: cosanostrverify
+    plan: free
+
+services:
+  - type: web
+    name: cosanostrverify
+    region: ohio
+    plan: free
+    env: ruby
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: cosanostrverify
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false

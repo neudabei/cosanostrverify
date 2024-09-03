@@ -79,6 +79,7 @@ test:
 #
 production:
   <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
   database: cosanostrverify_production
   username: cosanostrverify
   password: <%= ENV["COSANOSTRVERIFY_DATABASE_PASSWORD"] %>
