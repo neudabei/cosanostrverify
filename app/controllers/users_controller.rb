@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   def new
+    JsonCreatorService.new.write_json_file
     @user = User.new
   end
 
