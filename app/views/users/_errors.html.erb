@@ -1,0 +1,16 @@
+<%= turbo_frame_tag "new_user_frame" do %>
+    <div class="mt-10 flex justify-center gap-x-6">
+        <p class="text-red-400">
+            An error occurred. 
+        </p>
+        <% errors.each do |error| %>
+            <p class="text-red-400">
+                <%= error %>
+            </p>
+
+        <% end %>
+        <p>
+            Shoot me an email if this issue persists.<a class='underline' href="mailto:robert@cosanostr.com">robert@cosanostr.com</a>.
+        </p>
+    </div>
+<% end %>
