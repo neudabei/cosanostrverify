@@ -9,7 +9,7 @@ services:
   - type: web
     name: cosanostrverify
     region: ohio
-    plan: free
+    plan: starter
     env: ruby
     buildCommand: "./bin/render-build.sh"
     startCommand: "bundle exec puma -C config/puma.rb"
