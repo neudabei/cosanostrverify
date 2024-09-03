@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+        JsonCreatorService.new.write_json_file
         format.html { render partial: 'users/thank_you' }
       else
         format.html { render partial: 'users/error', locals: { errors: @user.errors.full_messages } }
