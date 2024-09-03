@@ -1,11 +1,15 @@
 <%= turbo_frame_tag "new_user_frame" do %>
-    <% errors.each do |error| %>
-        <p class="text-red-400 text-center">
-            <%= error %>
-        </p>
+    <div class="mt-6 bg-red-950">
+        <p class='text-neutral-100 p-4 font-mono'>An error occurred</p>
 
-    <% end %>
-    <p class='text-center'>
-        Shoot me an email if this issue persists: <a class='underline' href="mailto:robert@cosanostr.com">robert@cosanostr.com</a>.
+        <% errors.each do |error| %>
+            <p class="text-neutral-100 p-4 font-mono">
+                <%= error %>
+            </p>
+        <% end %>
+
+    <p class='text-neutral-100 p-4 font-mono'>
+        Shoot me an email if this issue persists: <a class='underline' href="mailto:robert@cosanostr.com">robert@cosanostr.com</a>
     </p>
+    </div>
 <% end %>
