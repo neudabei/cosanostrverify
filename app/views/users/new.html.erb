@@ -1,33 +1,34 @@
 <div class="flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8">
-  <%= turbo_frame_tag "new_user_frame" do %>
-    <div class="sm:mx-auto sm:w-full">
-      <h2 class="mt-6 text-center text-5xl font-bold leading-relaxed tracking-tight text-neutral-100 font-mono">Free nostr address identification</h2>
-      <h2 class="mt-6 text-center text-4xl font-bold leading-9 tracking-tight text-neutral-500 font-mono">Join this thing of ours</h2>
+  <div class="sm:mx-auto sm:w-full">
+    <h2 class="mt-6 text-center text-5xl font-bold leading-relaxed tracking-tight text-neutral-100 font-mono">Free nostr address identification</h2>
+    <h2 class="mt-6 text-center text-4xl font-bold leading-9 tracking-tight text-neutral-500 font-mono">Join this thing of ours</h2>
+  </div>
+
+  <div class="mt-6 sm:mx-auto sm:w-full sm:max-w-[480px]">
+    <div class="px-6 py-12">
+
+      <%= form_with model: @user, class: 'space-y-6'  do |form| %>
+        <div>
+          <div class="mt-2 flex shadow-sm">
+            <%= form.text_field :username, class: 'bg-neutral-950 block w-full min-w-0 flex-1 border-0 py-1.5 text-neutral-500 ring-1 ring-inset ring-neutral-500 placeholder:text-neutral-500 focus:ring-2 focus:ring-inset focus:ring-neutral-500 sm:text-sm sm:leading-6 font-mono', placeholder: 'username', required: true %>
+            <span class="bg-neutral-950 inline-flex items-center border border-l-0 border-neutral-500 px-3 text-neutral-500 sm:text-sm font-mono">@cosanostr.com</span>
+          </div>
+        </div>
+
+        <div>
+          <div class="mt-2">
+            <%= form.text_field :public_key, class: 'bg-neutral-950 block w-full min-w-0 border-0 py-1.5 text-neutral-500 shadow-sm ring-1 ring-inset ring-neutral-500 placeholder:text-neutral-500 focus:ring-2 focus:ring-inset focus:ring-neutral-500 sm:text-sm sm:leading-6 font-mono', placeholder: 'public_key', required: true %>
+          </div>
+        </div>
+
+        <div>
+          <%= form.submit 'Register', class: 'flex w-full justify-center bg-neutral-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-neutral-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-400 font-mono' %>
+        </div>
+      <% end %>
+
+      <%= turbo_frame_tag "new_user_frame" do %>
+      <% end %>
     </div>
+  </div>
 
-    <div class="mt-6 sm:mx-auto sm:w-full sm:max-w-[480px]">
-      <div class="px-6 py-12">
-
-        <%= form_with model: @user, class: 'space-y-6'  do |form| %>
-          <div>
-            <div class="mt-2 flex shadow-sm">
-              <%= form.text_field :username, class: 'bg-neutral-950 block w-full min-w-0 flex-1 border-0 py-1.5 text-neutral-500 ring-1 ring-inset ring-neutral-500 placeholder:text-neutral-500 focus:ring-2 focus:ring-inset focus:ring-neutral-500 sm:text-sm sm:leading-6 font-mono', placeholder: 'username', required: true %>
-              <span class="bg-neutral-950 inline-flex items-center border border-l-0 border-neutral-500 px-3 text-neutral-500 sm:text-sm font-mono">@cosanostr.com</span>
-            </div>
-          </div>
-
-          <div>
-            <div class="mt-2">
-              <%= form.text_field :public_key, class: 'bg-neutral-950 block w-full min-w-0 border-0 py-1.5 text-neutral-500 shadow-sm ring-1 ring-inset ring-neutral-500 placeholder:text-neutral-500 focus:ring-2 focus:ring-inset focus:ring-neutral-500 sm:text-sm sm:leading-6 font-mono', placeholder: 'public_key', required: true %>
-            </div>
-          </div>
-
-          <div>
-            <%= form.submit 'Register', class: 'flex w-full justify-center bg-neutral-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-neutral-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-400 font-mono' %>
-          </div>
-        <% end %>
-      </div>
-    </div>
-
-  <% end %>
 </div>
