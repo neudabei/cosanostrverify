@@ -9,6 +9,12 @@ RSpec.describe 'creating a profile', type: :system do
       my_username_is_stored_in_the_database
       and_the_nostr_json_file_contains_my_details
     end
+
+    scenario 'submitting an invalid key' do
+      when_i_visit_the_homepage
+      and_i_submit_the_form_with_an_invalid_key
+      then_i_see_an_error_message
+    end
   end
 
   private
@@ -23,8 +29,19 @@ RSpec.describe 'creating a profile', type: :system do
     click_button 'Register'
   end
 
+  def and_i_submit_the_form_with_an_invalid_key
+    fill_in :username, with: 'jane'
+    fill_in :public_key, with: 'npub1wqkvr9k8j23jyuqyym9fcnyxjpxyanujxsmyvpl7kyntcm0meh7qecu1rh'
+    click_button 'Register'
+  end
+
   def then_i_see_a_success_message
     expect(page).to have_content('You are now part of this thing of ours.')
+  end
+
+  def then_i_see_an_error_message
+    expect(page).to have_content('Invalid nip19 string')
+    expect(page).to have_content('The public_key seems to be in the wrong format. Submit it as hex or npub.')
   end
 
   def my_username_is_stored_in_the_database

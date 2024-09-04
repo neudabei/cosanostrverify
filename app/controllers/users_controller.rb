@@ -15,6 +15,9 @@ class UsersController < ApplicationController
       else
         format.html { render partial: 'users/error', locals: { errors: @user.errors.full_messages } }
       end
+
+    rescue ArgumentError => e
+      format.html { render partial: 'users/error', locals: { errors: ['The public_key seems to be in the wrong format. Submit it as hex or npub.', e.message] } }
     end
   end
 
