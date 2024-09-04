@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   def new
-    JsonCreatorService.new.write_json_file
     @user = User.new
   end
 
@@ -12,8 +11,6 @@ class UsersController < ApplicationController
       @user.assign_attributes(public_key: key_hash[:public_key], public_key_hex: key_hash[:public_key_hex])
 
       if @user.save
-        JsonCreatorService.new.write_json_file
-
         format.html { render partial: 'users/thank_you' }
       else
         format.html { render partial: 'users/error', locals: { errors: @user.errors.full_messages } }
