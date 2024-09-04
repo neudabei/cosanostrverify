@@ -50,6 +50,7 @@ group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mswin mswin64 mingw x64_mingw ]
   gem 'pry'
+  gem 'rspec-rails', '~> 7.0.0'
 end
 
 group :development do
@@ -68,7 +69,7 @@ end
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
-  gem "selenium-webdriver"
+  gem "selenium-webdriver", "4.24.0"
 end
 
 gem "tailwindcss-rails", "~> 2.7"
