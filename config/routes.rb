@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   root "users#new"
   resources :users, only: [:create]
 
-  get '/.well-known/nostr.json', to: 'verification#serve_json'
+  get '/.well-known/nostr.json', to: 'verification#serve_json', as: :nostr_json
 end
