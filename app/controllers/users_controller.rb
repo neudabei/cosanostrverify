@@ -18,6 +18,8 @@ class UsersController < ApplicationController
 
     rescue ArgumentError => e
       format.html { render partial: 'users/error', locals: { errors: ['The public_key seems to be in the wrong format. Submit it as hex or npub.', e.message] } }
+    rescue KeyConverterService::PrivateKeyError => e
+      format.html { render partial: 'users/error', locals: { errors: [e.message] } }
     end
   end
 
