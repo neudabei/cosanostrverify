@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    Sentry.capture_message("New user sign up: #{user_params[:public_key]}")
 
     respond_to do |format|
       key_hash = KeyConverterService.new(user_params[:public_key]).convert
