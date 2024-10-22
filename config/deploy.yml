@@ -38,9 +38,6 @@ builder:
   secrets:
     - KAMAL_REGISTRY_PASSWORD
     - RAILS_MASTER_KEY
-    - POSTGRES_PASSWORD
-    - DATABASE_URL
-    - SENTRY_DSN
 
 # Inject ENV variables into containers (secrets come from .kamal/secrets).
 
