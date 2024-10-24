@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_09_03_085906) do
+ActiveRecord::Schema[7.2].define(version: 2024_10_21_091202) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -23,5 +23,4 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_03_085906) do
     t.index ["public_key"], name: "index_users_on_public_key"
     t.index ["username"], name: "index_users_on_username"
   end
-
 end

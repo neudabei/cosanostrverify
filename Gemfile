@@ -3,7 +3,7 @@ source "https://rubygems.org"
 ruby "3.1.2"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 7.1.3", ">= 7.1.3.2"
+gem "rails", "~> 7.2.1", ">= 7.2.1.1"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
@@ -45,6 +45,11 @@ gem "bootsnap", require: false
 # gem "image_processing", "~> 1.2"
 
 gem 'bech32'
+gem 'kamal'
+
+gem "stackprof"
+gem "sentry-ruby"
+gem "sentry-rails"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
