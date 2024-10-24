@@ -14,9 +14,9 @@ servers:
   #   cmd: bin/jobs
 
 # Enable SSL auto certification via Let's Encrypt (and allow for multiple apps on one server).
-# If using something like Cloudflare, it is recommended to set encryption mode 
-# in Cloudflare's SSL/TLS setting to "Full" to enable end-to-end encryption. 
-proxy: 
+# If using something like Cloudflare, it is recommended to set encryption mode
+# in Cloudflare's SSL/TLS setting to "Full" to enable end-to-end encryption.
+proxy:
   ssl: true
   host: cosanostr.com
   # kamal-proxy connects to your container over port 80, use `app_port` to specify a different port.
@@ -96,6 +96,26 @@ accessories:
       - config/init.sql:/docker-entrypoint-initdb.d/setup.sql
     directories:
       - data:/var/lib/postgresql/data
+
+  db_backup:
+    image: eeshugerman/postgres-backup-s3:15
+    host: 159.223.123.58
+    env:
+      clear:
+        SCHEDULE: '@daily'
+        BACKUP_KEEP_DAYS: 7
+        DB_HOST: "cosanostrverify-postgres"
+        POSTGRES_HOST: 159.223.123.58
+        POSTGRES_USER: "cosanostrverify"
+        POSTGRES_DATABASE: "cosanostrverify_production"
+      secret:
+        - POSTGRES_PASSWORD
+        - PASSPHRASE  # optional for encrypted backups
+        - S3_REGION
+        - S3_ACCESS_KEY_ID
+        - S3_SECRET_ACCESS_KEY
+        - S3_BUCKET
+        - S3_PREFIX
 
 #   db:
 #     image: mysql:8.0
