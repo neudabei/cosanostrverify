@@ -103,7 +103,7 @@ accessories:
     env:
       clear:
         SCHEDULE: '@daily'
-        BACKUP_KEEP_DAYS: 7
+        BACKUP_KEEP_DAYS: 120
         DB_HOST: "cosanostrverify-postgres"
         POSTGRES_HOST: 159.223.123.58
         POSTGRES_USER: "cosanostrverify"
