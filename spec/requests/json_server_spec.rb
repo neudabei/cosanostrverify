@@ -29,4 +29,11 @@ RSpec.describe 'Serving JSON with names and public keys' do
       expect(response.body).to eq(json_response)
     end
   end
+
+  describe 'response headers' do
+    it 'sets access-control-allow-origin to *' do
+      get '/.well-known/nostr.json?name=maria'
+      expect(response.header.fetch('access-control-allow-origin')).to eq('*')
+    end
+  end
 end
