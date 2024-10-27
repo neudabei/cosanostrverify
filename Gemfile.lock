@@ -184,7 +184,7 @@ GEM
     psych (5.1.2)
       stringio
     public_suffix (6.0.1)
-    puma (6.4.2)
+    puma (6.4.3)
       nio4r (~> 2.0)
     racc (1.8.1)
     rack (3.1.7)
@@ -313,7 +313,7 @@ GEM
       activemodel (>= 6.0.0)
       bindex (>= 0.4.0)
       railties (>= 6.0.0)
-    webrick (1.8.1)
+    webrick (1.8.2)
     websocket (1.2.11)
     websocket-driver (0.7.6)
       websocket-extensions (>= 0.1.0)
@@ -342,7 +342,7 @@ DEPENDENCIES
   kamal
   pg (~> 1.1)
   pry
-  puma (>= 5.0)
+  puma (>= 6.4.3)
   rack-cors
   rails (~> 7.2.1, >= 7.2.1.1)
   redis (>= 4.0.1)
@@ -357,6 +357,7 @@ DEPENDENCIES
   turbo-rails
   tzinfo-data
   web-console
+  webrick (>= 1.8.2)
 
 RUBY VERSION
    ruby 3.1.2p20
